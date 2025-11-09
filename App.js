@@ -73,6 +73,7 @@ const RestaurantCard = ( props ) => {
 
 const resList = [
 {
+type: "restaurant",
 info: {
 id: "298332",
 name: "Domino's Pizza",
@@ -177,6 +178,7 @@ type: "WEBLINK"
 widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
 },
 {
+  type: "restaurant",
 info: {
 id: "509009",
 name: "Burger King",
@@ -253,6 +255,7 @@ type: "WEBLINK"
 widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
 },
 {
+  type: "restaurant",
 info: {
 id: "421681",
 name: "Pizza Hut",
@@ -344,6 +347,7 @@ type: "WEBLINK"
 widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
 },
 {
+  type: "restaurant",
 info: {
 id: "765828",
 name: "Subway",
@@ -423,6 +427,7 @@ type: "WEBLINK"
 widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
 },
 {
+  type: "restaurant",
 info: {
 id: "81940",
 name: "McDonald's",
@@ -520,6 +525,7 @@ type: "WEBLINK"
 widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
 },
 {
+  type: "restaurant",
 info: {
 id: "423977",
 name: "KFC",
@@ -600,6 +606,7 @@ type: "WEBLINK"
 widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
 },
 {
+  type: "restaurant",
 info: {
 id: "183611",
 name: "Faasos - Wraps, Rolls & Shawarma",
@@ -697,6 +704,7 @@ type: "WEBLINK"
 widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
 },
 {
+type: "restaurant",
 info: {
 id: "198914",
 name: "Baskin Robbins - Ice Cream Desserts",
@@ -799,7 +807,7 @@ const Body = () => {
     <div className=" ">Search</div>
     <div className="res-container">
     {resList.map((restaurant) => (
-      <RestaurantCard resData={restaurant} />
+      <RestaurantCard key={restaurant.info.id} resData={restaurant} />
     ))
       
     }
@@ -809,9 +817,6 @@ const Body = () => {
   </div>
   );
 };
-
-
-
 
 
 const AppLayout = () => {
