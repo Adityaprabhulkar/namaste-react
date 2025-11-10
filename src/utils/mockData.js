@@ -1,76 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-
-//Creating Food Application Using React
-
-/** 
-* Header
-* - Logo
-* - Nav Items
-* - Body
-* - Search
-* - RestaurantContainer
-*    - RestaurantCard
-      - Img
-      - Name of res, Star Rating, cuisine, delvery-time 
-* - Footer
-* - Copyrights
-* - Links
-* - Address
-* - Contact
-*/
-
-const Header = () => {
-  return(
-    <div className="header">
-      <div className="Logo-container">
-        <img className="Logo" src="https://thumbs.dreamstime.com/b/tasty-food-sign-logo-icon-design-omelette-character-template-fast-express-cafe-vector-color-emblem-121200628.jpg"></img>
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-
-    </div>
-  )
-};
-
-       
-
-const RestaurantCard = ( props ) => {
-  const {resData} = props;
-
-  const {cloudinaryImageId,name, cuisines, avgRating, costForTwo, deliveryTime } = resData.info;
-  
-  return (
-    <div className="res-card">
-      <img
-        className="logo"
-        alt="res-logo"
-      src={
-         resData.info.cloudinaryImageId
-         ? "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-         resData.info.cloudinaryImageId
-         : "fallback-image.jpg"
-}
-      />
-
-      <h3>{name}</h3>
-      <h4>{cuisines?.join(", ") || "No cuisines"}</h4>
-      <h4>{avgRating}</h4>
-      <h4>{costForTwo}</h4>
-      <h4>{deliveryTime || resData.sla?.deliveryTime} minutes</h4>
-    </div>
-  );
-};
-
-
-
 const resList = [
 {
 type: "restaurant",
@@ -798,39 +725,7 @@ type: "WEBLINK"
 },
 widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
 }
-]
+];
 
 
-const Body = () => {
-  return (
-  <div className="body">
-    <div className=" ">Search</div>
-    <div className="res-container">
-    {resList.map((restaurant) => (
-      <RestaurantCard key={restaurant.info.id} resData={restaurant} />
-    ))
-      
-    }
- 
-
-    </div>
-  </div>
-  );
-};
-
-
-const AppLayout = () => {
-  return ( <div className="app">
-    <Header/>
-    <Body/>
-  </div>)
-  ;
-};
-
-
-
-
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout/>);
+export default resList;
