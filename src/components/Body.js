@@ -1,15 +1,27 @@
 import RestaurantCard from "./RestaurantCard";
-import resList from "../utils/mockData";
-import { useState } from "react";
-import resList from "../utils/mockData";
-import resList from './../utils/mockData';
+import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
+
+
 
 
 const Body = () => {
-const [listOfRestaurant, setListOfRestaurant] = useState(resList)
+const [listOfRestaurant, setListOfRestaurant] = useState([])
 
+useEffect(() => {
+  fetchData();
+}, []);
 
-  return (
+const fetchData = async () => {
+  const data = await fetch("https://foodfire.onrender.com/api/restaurants");
+
+  const json = await data.json();
+
+  console.log(json);
+  setListOfRestaurant(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+};
+
+return listOfRestaurant.length === 0 ? <Shimmer/> : (
   <div className="body">
     <div className="filter">
       <button className="filter-btn"
@@ -24,7 +36,7 @@ const [listOfRestaurant, setListOfRestaurant] = useState(resList)
         Top Rated Restaurants</button>
     </div>
     <div className="res-container">
-        {resList.map((restaurant) => (
+        {listOfRestaurant.map((restaurant) => (
             <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
     </div>

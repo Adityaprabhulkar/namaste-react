@@ -11,6 +11,12 @@
     border: 1px solid black;
 }
 
+.login{
+    width: 900px;
+    height: auto;
+    cursor: pointer;
+}
+
 .Logo{
     width: 150px;   
     height: auto;
@@ -30,6 +36,10 @@
 .nav-items>ul>li{
     padding: 10px;
     margin: 10px;
+}
+
+.login{
+    width: 50px;
 }
 
 .res-container{
@@ -74,5 +84,19 @@
 .filter-btn{
     margin: 10px;
     cursor: pointer;
+}
+
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.shimmer-cards {
+    margin: 20px;
+    width: 200px;
+    height: 400px;
+    border-radius: 0.9rem;
+    background-color: #f0f0f0;
 }
 
