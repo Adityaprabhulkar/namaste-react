@@ -17,8 +17,9 @@ console.log("Body Rendering");
 
 
 useEffect(() => {
-  fetchData();
+  console.log("useEffect called");
 }, []);
+
 
 const fetchData = async () => {
   const data = await fetch("https://foodfire.onrender.com/api/restaurants");
