@@ -61,5 +61,9 @@ import {Component} from "path"
 - useState() - Superpoerful state Variable in React
 - useEffect()
 
+# 2 types of routing
+- Client Side Routing
+- Server Side Routing
 
+# using apis
 
