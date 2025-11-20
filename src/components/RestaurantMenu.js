@@ -16,9 +16,10 @@ const RestaurantMenu = () => {
         setResInfo(json.data);
     };
 
-    // if (resInfo === null) retrun <Shimmer />;
+    if (resInfo === null) retrun <Shimmer />;
 
     const{ name , cuisines, costForTwoMessage } =
+    resInfo?.cards[2]
 
     resInfo
 
